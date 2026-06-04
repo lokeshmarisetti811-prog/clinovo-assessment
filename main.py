@@ -24,7 +24,7 @@ SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
 async def root():
     return {
         "success": True,
-        "message": "API Running"
+        "message": "Assessment API Running"
     }
 
 @app.get("/health")
