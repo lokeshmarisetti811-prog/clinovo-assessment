@@ -20,6 +20,19 @@ SMTP_PASSWORD = os.getenv("SMTP_SENDER_PASSWORD")
 SMTP_SERVER = os.getenv("SMTP_SERVER")
 SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
 
+@app.get("/")
+async def root():
+    return {
+        "success": True,
+        "message": "API Running"
+    }
+
+@app.get("/health")
+async def health():
+    return {
+        "status": "healthy"
+    }
+
 @app.post("/send-report")
 async def send_report(
     file: UploadFile = File(...),
